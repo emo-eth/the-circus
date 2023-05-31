@@ -7,7 +7,7 @@ A: They're both intents.
 
 ## Usage
 
-`CircusZone` is a proof-of-concept zone that takes `extraData` in the form of an abi-encoded struct:
+`TheCircusZone` is a proof-of-concept Seaport Zone that takes `extraData` in the form of an abi-encoded struct:
 
 ```solidity
 struct ArbitraryIntentData {

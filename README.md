@@ -20,9 +20,9 @@ This data is used to CREATE2 an ephemeral smart contract designed to be a contai
 
 This allows for expressive, arbitrary assertions to be made by `TheCircusZone`, to emphasize Seaport's potential as an "intent" protocol; a signed Seaport order will not be fulfillable unless all `ConsiderationItem`s are satisified _in addition_ to any arbitrary checks specified by an `ArbitraryIntent`. Since Zones can both read _and_ write arbitrary data, this allows for a wide range of use cases.
 
-### TheCircusZOne
+### TheCircusZone
 
-A simple zone that reads the `extraData` from the `ZoneParameters` as an `ArbitraryIntentData` struct. It calls `CREATE2` using this data, and reverts if any data returned, otherwise passing the `validateOrder` check.
+A simple zone that reads the `extraData` from the `ZoneParameters` as an `ArbitraryIntentData` struct. It calls `CREATE2` using this data, and reverts if any data returned, otherwise passing the `validateOrder` check. The resulting address is checked against the `zoneHash` of the order, meaning all logic must be set at the time of order creation.
 
 ### ArbitraryIntent
 

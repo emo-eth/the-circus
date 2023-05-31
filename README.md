@@ -40,19 +40,25 @@ idk tbh
 ## What is Seaport?
 [Seaport](https://github.com/ProjectOpenSea/seaport) is the most powerful, extensible, and gas-efficient token settlement platform on EVM chains.
 
-## What are Zones?
+## What are Seaport Zones?
 Zones are accounts that must authorize a Seaport order as part of fulfillment. Strictly speaking, they don't _have_ to be smart contracts, but they're a lot more interesting if they are.
 
-Seaport will call `validateOrder` on smart contract Zones specified by orders' `OrderParameters`, after all token transfers have been made. `validateOrder` is a stateful call, which means Zones can make arbitrary assertions about the state of the chain _after_ the order has been executed, as well as do any on-chain record-keeping. 
+Seaport will call `validateOrder` on smart contract Zones specified by orders' `OrderParameters`, after all token transfers have been made. This means Zones can make arbitrary assertions about the state of the chain _after_ the order has been executed, such as:
+
+> This account should have at least X balance of Y token, and at most B balance of C token
+
+without being prescriptive about how exactly that happens.
+
+Since Seaport makes a stateful call, Zones may also perform on-chain update.
 
 ## Why CREATE2 "intents?"
-To highlight that Zones can do pretty much anything
+To highlight that Seaport Zones can do pretty much anything
 
 ## Isn't that pretty gas-intensive?
 Yeah
 
-## Can't I just deploy a custom Zone for my use case?
+## Can't I just deploy a custom Seaport Zone for my use-case?
 Yeah
 
-## How is "The Circus" different from normal Zones?
+## How is "The Circus" different from normal Seaport Zones?
 It's not

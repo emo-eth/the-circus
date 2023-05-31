@@ -31,3 +31,28 @@ An abstract template contract for executing arbitrary code within the context of
 ### `test/helpers/SpecificIntent.sol`
 
 A very simple "specific" Intent that reverts if a particular smart contract has not been deployed.
+
+# FAQ
+
+## What are intents?
+idk tbh
+
+## What is Seaport?
+[Seaport](https://github.com/ProjectOpenSea/seaport) is the most powerful, extensible, and gas-efficient token settlement platform on EVM chains.
+
+## What are Zones?
+Zones are accounts that must authorize a Seaport order as part of fulfillment. Strictly speaking, they don't _have_ to be smart contracts, but they're a lot more interesting if they are.
+
+Seaport will call `validateOrder` on smart contract Zones specified by orders' `OrderParameters`, after all token transfers have been made. `validateOrder` is a stateful call, which means Zones can make arbitrary assertions about the state of the chain _after_ the order has been executed, as well as do any on-chain record-keeping. 
+
+## Why CREATE2 "intents?"
+To highlight that Zones can do pretty much anything
+
+## Isn't that pretty gas-intensive?
+Yeah
+
+## Can't I just deploy a custom Zone for my use case?
+Yeah
+
+## How is "The Circus" different from normal Zones?
+It's not
